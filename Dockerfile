@@ -1,10 +1,13 @@
-# Use official OpenJDK 21 image
-FROM openjdk:21-jdk-slim
+# Use Eclipse Temurin JDK 21 (official, supported, works on Docker Hub)
+FROM eclipse-temurin:21-jdk
 
-# Copy the built JAR
+# Set working directory
+WORKDIR /app
+
+# Copy the built JAR from Maven target
 COPY target/scoreboard-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose port 8080
+# Expose the port from Spring Boot (Render will set PORT)
 EXPOSE 8080
 
 # Run the JAR
