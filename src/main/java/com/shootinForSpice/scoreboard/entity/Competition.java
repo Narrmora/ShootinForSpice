@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Competition {
-    List<Game>games;
-    Map<String, Player> players;
+    private List<Game>games;
+    private Map<String, Player> players;
 
     public Map<String, Player> getPlayers() {
         return players;

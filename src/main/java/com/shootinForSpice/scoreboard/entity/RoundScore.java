@@ -1,7 +1,7 @@
 package com.shootinForSpice.scoreboard.entity;
 
 public class RoundScore {
-    int gameNumber;
-    int roundNumber;
-    int roundPoints;
+    private int gameNumber;
+    private int roundNumber;
+    private int roundPoints;
 }

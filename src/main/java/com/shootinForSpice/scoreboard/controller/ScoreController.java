@@ -29,6 +29,10 @@ public class ScoreController {
     return scoreService.submitRound(roundRequest);
     }
 
+    @PutMapping("clearRoundCounter")
+    public void clearRoundCounter(){
+        scoreService.clearRoundCounter();
+    }
 
    // @PostMapping("/newGame")
    // public startNewGame

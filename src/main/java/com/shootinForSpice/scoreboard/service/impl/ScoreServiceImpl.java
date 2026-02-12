@@ -57,23 +57,40 @@ public class ScoreServiceImpl implements iScoreService {
 
         currentPlayer.setTotalScore(currentPlayer.getTotalScore() + points);
 
+        if (roundRequest.getPlayerKey().equals("R")){
+            currentGame.setrSubmitted(true);
+        }
+        else currentGame.setmSubmitted(true);
+
+        if (currentGame.isrSubmitted() && currentGame.ismSubmitted()) {
+            currentGame.incrementRound();
+            currentGame.setmSubmitted(false);
+            currentGame.setrSubmitted(false);
+        }
         int rScore = competition.getPlayers().get("R").getTotalScore();
         int mScore = competition.getPlayers().get("M").getTotalScore();
-
-        currentGame.roundNumber ++;
-
-
-        return new ScoreResponse(currentGame.getGameNumber(), currentGame.getRoundNumber(),
+        int currentRound = currentGame.getRoundNumber();
+        ScoreResponse scoreResponse = new ScoreResponse (currentGame.getGameNumber(), currentRound,
                 rScore, mScore);
 
+        return scoreResponse;
     }
+
+
+    @Override
+    public void clearRoundCounter() {
+        List<Game> games = competition.getGames();
+        if (games.isEmpty()) {
+            throw new IllegalStateException("No active game to reset round counter.");
+        }
+        Game currentGame = games.get(games.size() - 1);
+        currentGame.setRoundNumber(1);
+    }
+
+
 
     @Override
     public ScoreResponse getScore() {
-
-
-
-
 
         return new ScoreResponse(1,5,9, 13);
     }

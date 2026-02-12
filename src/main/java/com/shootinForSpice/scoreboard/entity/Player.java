@@ -1,8 +1,8 @@
 package com.shootinForSpice.scoreboard.entity;
 
 public class Player {
-    String name;
-    int totalScore; //across the competition
+    private String name;
+    private int totalScore; //across the competition
 
     public Player(String name) {
         this.name = name;
