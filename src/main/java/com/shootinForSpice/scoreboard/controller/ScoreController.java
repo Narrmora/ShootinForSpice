@@ -1,5 +1,6 @@
 package com.shootinForSpice.scoreboard.controller;
 
+import com.shootinForSpice.scoreboard.dto.BonusRequest;
 import com.shootinForSpice.scoreboard.dto.RoundRequest;
 import com.shootinForSpice.scoreboard.dto.ScoreResponse;
 import com.shootinForSpice.scoreboard.service.iScoreService;
@@ -19,19 +20,24 @@ public class ScoreController {
     }
 
     @GetMapping("/getscore")
-    public ScoreResponse getCurrentScore(){
+    public ScoreResponse getScore(){
         return scoreService.getScore();
 
     }
 
-    @PostMapping("/submitRound")
+    @PostMapping("/submitround")
     public ScoreResponse submitRound(@RequestBody RoundRequest roundRequest){
     return scoreService.submitRound(roundRequest);
     }
 
-    @PutMapping("clearRoundCounter")
-    public void clearRoundCounter(){
-        scoreService.clearRoundCounter();
+    @PostMapping("/finishgame")
+    public ScoreResponse finishGame(@RequestBody BonusRequest bonusRequest){
+        return scoreService.finishGame(bonusRequest);
+    }
+
+    @PutMapping("clearscore")
+    public void clearScore(){
+        scoreService.clearScore();
     }
 
    // @PostMapping("/newGame")

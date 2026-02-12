@@ -1,12 +1,12 @@
 package com.shootinForSpice.scoreboard.dto;
 
 public class RoundRequest {
-    String playerKey;
-    boolean twoPlusKills;
-    boolean grenadeKill;
-    boolean zeusKill;
-    boolean knifeKill;
-    boolean smokeDefuse;
+    private String playerKey;
+    private boolean twoPlusKills;
+    private boolean grenadeKill;
+    private boolean zeusKill;
+    private boolean knifeKill;
+    private boolean smokeDefuse;
 
 
     public String getPlayerKey() {
