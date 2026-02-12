@@ -2,9 +2,9 @@ package com.shootinForSpice.scoreboard.entity;
 
 
 public class Game {
-    int gameNumber;
-    int roundNumber;
-    boolean bonusesApplied;
+    public int gameNumber;
+    public int roundNumber;
+    public boolean bonusesApplied;
 
     public int getGameNumber() {
         return gameNumber;

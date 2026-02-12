@@ -1,5 +1,6 @@
 package com.shootinForSpice.scoreboard.controller;
 
+import com.shootinForSpice.scoreboard.dto.RoundRequest;
 import com.shootinForSpice.scoreboard.dto.ScoreResponse;
 import com.shootinForSpice.scoreboard.service.iScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,12 @@ public class ScoreController {
 
     }
 
-//@PostMapping("/submitRound")
-    //public submitRound
+    @PostMapping("/submitRound")
+    public ScoreResponse submitRound(@RequestBody RoundRequest roundRequest){
+    return scoreService.submitRound(roundRequest);
+    }
+
+
    // @PostMapping("/newGame")
    // public startNewGame
 }
