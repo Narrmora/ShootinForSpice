@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shootin' for Spice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Shootin' for Spice</h1>
+
+        <!-- SCOREBOARD -->
+        <div class="scoreboard">
+            <h2> Game: <span id="gameNumber">-</span> <span style="margin-left: 20px;"></span> Round: <span
+                    id="roundNumber">-</span>
+            </h2>
+            <div class="playerScore">
+                <div class="playerItem">
+                    <span class="playerLabel" style="color: #d400ff81;">Miška:</span>
+                    <span id="mScore" style="color: #d400ff81;">0</span>
+                </div>
+                <div class="playerItem">
+                    <span class="playerLabel" style="color: #006effb0;">Romi:</span>
+                    <span id="rScore" style="color: #006effb0;">0</span>
+                </div>
+            </div>
+            <div class="profiles">
+                <div class="playerM"></div>
+                <div class="playerR"></div>
+            </div>
+
+            <div style="text-align: center;"><button onclick="getScore()">Refresh Score</button></div>
+        </div>
+
+
+        <!-- ROUND SUBMISSION -->
+        <div class="round-section">
+            <h2>Submit Round</h2>
+
+            <div class="rounds-container">
+                <form class="round-form" id="roundFormM" style="background-color: #d400ff81;">
+                    <div class="roundPlayerM">
+                        <h3>M</h3>
+                    </div>
+                    <div><label><input type="checkbox" id="mTwoPlusKills"> Did you get 2 or more kills this round?</label>
+                    </div>
+                    <div><label><input type="checkbox" id="mGrenadeKill"> Did you get a grenade kill this round?</label>
+                    </div>
+                    <div><label><input type="checkbox" id="mZeusKill"> Did you get a Zeus kill this round?</label></div>
+                    <div><label><input type="checkbox" id="mKnifeKill"> Did you get a Knife kill this round?</label>
+                    </div>
+                    <div><label><input type="checkbox" id="mSmokeDefuse"> Did you get a ninja(smoke) defuse this
+                            round?</label></div>
+
+
+                    <div style="text-align: center;"><button onclick="submitRound('M', this.closest('.round-form'))">Submit Round</button></div>
+                </form>
+
+                <form class="round-form" id="roundFormR" style="background-color: rgba(0, 110, 255, 0.4);">
+                    <div class="roundPlayerR">
+                        <h3>R</h3>
+                    </div>
+                    <div><label><input type="checkbox" id="rTwoPlusKills"> Did you get 2 or more kills this round?</label>
+                    </div>
+                    <div><label><input type="checkbox" id="rGrenadeKill"> Did you get a grenade kill this round?</label>
+                    </div>
+                    <div><label><input type="checkbox" id="rZeusKill"> Did you get a Zeus kill this round?</label></div>
+                    <div><label><input type="checkbox" id="rKnifeKill"> Did you get a Knife kill this round?</label>
+                    </div>
+                    <div><label><input type="checkbox" id="rSmokeDefuse"> Did you get a ninja(smoke) defuse this
+                            round?</label></div>
+                    <div style="text-align: center;"><button class="button rbutton" onclick="submitRound('R', this.closest('.round-form'))">Submit
+                            Round</button></div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- BONUS SUBMISSION -->
+        <div>
+            <h2>Endgame Bonuses</h2>
+            <div class="rounds-container">
+                <form class="round-form" id="bonusFormM" style="background-color: #d400ff81;">
+                    <div>
+                        <h3>M</h3>
+                    </div>
+                    <div><label><input type="checkbox" id="mAnubisWin"> Was this a win on Anubis?</label></div>
+                    <div><label><input type="checkbox" id="mOfficeWin"> Was this a win on Office?</label></div>
+                    <div><label><input type="checkbox" id="mClickbait"> Were you the clickbait? 🤭</label></div>
+                    <div><label><input type="checkbox" id="mInvisible"> Were you invisible? 🥹 </label></div>
+                    <div><label><input type="checkbox" id="mSub1k"> Did you fail to get 1k dmg? 👎</label></div>
+                    <div><label><input type="checkbox" id="mThreeKplus"> Did you shit on them and score 3k+ ? 😱</label>
+                    </div>
+                    <div><label><input type="checkbox" id="mUtil100"> Did you do 100+ total dmg with nades? 🔥</label>
+                    </div>
+                    <div style="text-align: center;"><button onclick="submitBonus('M', this.closest('.round-form'))">Finish Game</button></div>
+
+                </form>
+                <form class="round-form" id="bonusFormR" style="background-color: rgba(0, 110, 255, 0.4);">
+                    <div>
+                        <h3>R</h3>
+                    </div>
+                    <div><label><input type="checkbox" id="rAnubisWin"> Was this a win on Anubis?</label></div>
+                    <div><label><input type="checkbox" id="rOfficeWin"> Was this a win on Office?</label></div>
+                    <div><label><input type="checkbox" id="rClickbait"> Were you the clickbait? 🤭</label></div>
+                    <div><label><input type="checkbox" id="rInvisible"> Were you invisible? 🥹 </label></div>
+                    <div><label><input type="checkbox" id="rSub1k"> Did you fail to get 1k dmg? 👎</label></div>
+                    <div><label><input type="checkbox" id="rThreeKplus"> Did you shit on them and score 3k+ ? 😱</label>
+                    </div>
+                    <div><label><input type="checkbox" id="rUtil100"> Did you do 100+ total dmg with nades? 🔥</label>
+                    </div>
+                    <div style="text-align: center;"><button class="button rbutton" onclick="submitBonus('R', this.closest('.round-form'))">Finish
+                            Game</button></div>
+
+                    </form>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

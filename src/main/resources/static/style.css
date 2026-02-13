@@ -1,0 +1,169 @@
+body {
+    font-family: Raleway, sans-serif;
+    margin: 0;
+    padding: 5px;
+    background-image: url(assets/background.png);
+    background-size: cover;  
+    background-repeat: no-repeat; /* prevent tiling */
+
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    
+}
+
+h1 {
+    text-align: center;
+    color: rgb(204, 158, 102);
+}
+
+h2 {
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    gap: 50px;
+    border-bottom: solid #302175;
+    color: rgb(204, 158, 102);
+
+}
+h3 {
+    text-align: center;
+}
+.playerScore {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+    gap: 150px;
+    text-align: center;
+    display: flex;
+    justify-content: center; /* pushes items to edges */
+       /* or whatever fits your layout */
+    align-items: center; /* vertically center items if needed */
+}
+.playerItem {
+    display: flex;
+    gap: 5px; 
+}
+
+.scoreboard {
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    align-items: center;
+    align-content: center;
+    gap: 30px;
+}
+
+.profiles {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.player {
+    padding: 15px;
+    border-radius: 8px;
+    width: 45%;
+    text-align: center;
+}
+.player-container {
+    display: flex;
+    align-items: center;  /* vertically center the image and text */
+    margin-bottom: 20px; 
+     /* spacing between players */
+}
+
+.playerR {
+    width: 100px;          /* your desired width */
+    height: 100px;         /* your desired height */
+    background-image: url('assets/Chaos.jpg');
+    background-size: cover;       /* fills the div, may crop edges */
+    background-position: center;  /* centers the image */
+    background-repeat: no-repeat; /* prevents tiling if image is smaller */
+    border: 3px solid #006effb0;  
+    border-radius: 10px; 
+    box-shadow: 0 0 10px #006effb0; 
+    text-align: center;
+        
+}
+.playerM {
+    width: 100px;          /* your desired width */
+    height: 100px;         /* your desired height */
+    background-image: url('assets/Miska.jpg');
+    background-size: cover;       /* fills the div, may crop edges */
+    background-position: center;  /* centers the image */
+    background-repeat: no-repeat; /* prevents tiling if image is smaller */
+    border-radius: 10px; 
+    border: 3px solid #d400ff81;    
+    text-align: center;
+    box-shadow: 0 0 10px #d400ff81;
+       
+}
+
+.playerInfo {
+    padding: 0 15px;   /* space between image and text */
+}
+
+/* Optional: push names/scores left or right */
+.playerInfo.right {
+    order: 2;          /* for left image, info appears on right */
+}
+
+.playerInfo.left {
+    order: 0;    
+}
+
+.round-section {
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2c7be5;
+    color: white;
+    cursor: pointer;
+}
+button.rbutton {
+    background-color: #c32acc;
+}
+button.rbutton:hover {
+    background-color: #ab00bf;
+}
+
+
+button:hover {
+    background-color: #1a5fd0;
+}
+
+input, select {
+    padding: 6px;
+    margin-top: 10px;
+}
+.rounds-container {
+    display: flex;
+    justify-content: space-between; /* space between left and right */
+    gap: 20px; /* optional spacing */
+}
+
+.round-form {
+    padding: 15px;
+    border-radius: 8px;
+    flex: 1; /* each form takes equal width */
+    text-shadow: 0 0 0.7px currentColor;
+}
+.gameInfo {
+    display: flex;
+    gap: 190px; /* space between game and round */
+    align-items: center; /* vertically center text if needed */
+    align-content: center;
+    justify-content: center;
+}
