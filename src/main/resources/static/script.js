@@ -69,4 +69,7 @@ async function submitBonus(playerKey) {
 
 
 
-window.onload = getScore;
+window.onload = () => {
+    getScore();          // initial load
+    setInterval(getScore, 2000);  // update every 2 seconds
+};
