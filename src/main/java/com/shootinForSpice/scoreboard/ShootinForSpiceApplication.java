@@ -12,9 +12,4 @@ public class ShootinForSpiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ShootinForSpiceApplication.class, args);}
 
-
-	@GetMapping("/")
-	public String hello() {
-		return "CS2 scoreboard is alive 🚀";
-	}
 }
