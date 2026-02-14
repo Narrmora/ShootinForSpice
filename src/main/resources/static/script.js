@@ -10,6 +10,19 @@ async function getScore() {
     document.getElementById("rScore").innerText = data.rScore;
 }
 
+function openBonusModal() {
+    const modal = document.getElementById("bonusModal");
+    modal.style.display = "block";
+    document.body.classList.add("modal-open");
+}
+
+function closeBonusModal() {
+    const modal = document.getElementById("bonusModal");
+    modal.style.display = "none";
+    document.body.classList.remove("modal-open");
+    getScore();
+}
+
 
 async function submitRound(playerKey) {
 
@@ -25,7 +38,6 @@ async function submitRound(playerKey) {
 
     };
 
-
     await fetch(`${BASE_URL}/submitround`, {
         method: "POST",
         headers: {
@@ -34,10 +46,9 @@ async function submitRound(playerKey) {
         body: JSON.stringify(payload)
     });
 
-    formElement.reset();
-
-    getScore();
-   
+ document.querySelectorAll(`#roundForm${playerKey} input[type="checkbox"]`)
+        .forEach(cb => cb.checked = false);
+            getScore();
 }
 
 
@@ -59,15 +70,19 @@ async function submitBonus(playerKey) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
     });
-
-    formElement.reset();
-
+ document.querySelectorAll(`#bonusModal input[type="checkbox"]`)
+        .forEach(cb => cb.checked = false);
+    closeBonusModal();
     getScore();
-
-
 }
 
+window.onclick = function(event) {
+    const modal = document.getElementById("bonusModal");
 
+    if (event.target === modal) {
+        closeBonusModal();
+    }
+};
 
 window.onload = () => {
     getScore();          // initial load

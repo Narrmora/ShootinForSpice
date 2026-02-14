@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="icon" type="image/png" href="/favicon.png">
-
 <head>
     <meta charset="UTF-8">
-    <title>Shootin' for Spice</title>
+    <title>💘Shootin' for Spice</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon4.png">
+    <script>
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "💔 Come back...";
+            } else {
+                document.title = "💘 Shootin' for Spice";
+            }
+        });
+    </script>
 </head>
 
 <body>
 
     <div class="container">
 
-        <h1>Shootin' for Spice</h1>
+        <h1 class="site-title"><img src="assets/favicon.png" alt="Shootin' for Spice"></h1>
 
         <!-- SCOREBOARD -->
         <div class="scoreboard">
@@ -31,14 +39,15 @@
             </div>
             <div class="profiles">
                 <div class="playerM"></div>
+                <div class="refresh-container"><button onclick="getScore()">Refresh Score</button></div>
                 <div class="playerR"></div>
             </div>
 
-            <div style="text-align: center;"><button onclick="getScore()">Refresh Score</button></div>
-        </div>
 
 
-        <!-- ROUND SUBMISSION -->
+
+
+            <!-- ROUND SUBMISSION -->
         <div class="round-section">
             <h2>Submit Round</h2>
 
@@ -58,7 +67,7 @@
                             round?</label></div>
 
 
-                    <div style="text-align: center;"><button onclick="submitRound('M', this.closest('.round-form'))">Submit Round</button></div>
+                    <div style="text-align: center;"><button type="button" onclick="submitRound('M', this.closest('.round-form'))">Submit Round</button></div>
                 </form>
 
                 <form class="round-form" id="roundFormR" style="background-color: rgba(0, 110, 255, 0.4);">
@@ -77,11 +86,13 @@
                     <div style="text-align: center;"><button class="button rbutton" onclick="submitRound('R', this.closest('.round-form'))">Submit
                             Round</button></div>
                 </form>
-            </div>
+            </div> <div style="text-align:center; margin-top: 10px;">
+            <button class="button rbutton" onclick="openBonusModal()">Finish Game</button>
+        </div>
         </div>
 
 
-        <!-- BONUS SUBMISSION -->
+        <!-- BONUS SUBMISSION
         <div>
             <h2>Endgame Bonuses</h2>
             <div class="rounds-container">
@@ -120,8 +131,47 @@
                     </form>
             </div>
 
+        </div> -->
+
+            <!-- BONUS MODAL -->
+            <div id="bonusModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeBonusModal()">&times;</span>
+                    <h2>Endgame Bonuses</h2>
+
+                    <div class="rounds-container">
+                        <div class="round-form" style="background-color: #d400ff81;">
+                            <div><h3>M</h3></div>
+                            <div><label><input type="checkbox" id="mAnubisWin"> Was this a win on Anubis?</label></div>
+                            <div><label><input type="checkbox" id="mOfficeWin"> Was this a win on Office?</label></div>
+                            <div><label><input type="checkbox" id="mClickbait"> Were you the clickbait? 🤭</label></div>
+                            <div><label><input type="checkbox" id="mInvisible"> Were you invisible? 🥹 </label></div>
+                            <div><label><input type="checkbox" id="mSub1k"> Did you fail to get 1k dmg? 👎</label></div>
+                            <div><label><input type="checkbox" id="mThreeKplus"> Did you score 3k+? 😱</label></div>
+                            <div><label><input type="checkbox" id="mUtil100"> Did you do 100+ total dmg with nades? 🔥</label></div>
+                            <div style="text-align: center;">
+                                <button type="button" onclick="submitBonus('M')">Calculate Bonuses</button>
+                            </div>
+                        </div>
+
+                        <div class="round-form" style="background-color: rgba(0, 110, 255, 0.4);">
+                            <div><h3>R</h3></div>
+                            <div><label><input type="checkbox" id="rAnubisWin"> Was this a win on Anubis?</label></div>
+                            <div><label><input type="checkbox" id="rOfficeWin"> Was this a win on Office?</label></div>
+                            <div><label><input type="checkbox" id="rClickbait"> Were you the clickbait? 🤭</label></div>
+                            <div><label><input type="checkbox" id="rInvisible"> Were you invisible? 🥹 </label></div>
+                            <div><label><input type="checkbox" id="rSub1k"> Did you fail to get 1k dmg? 👎</label></div>
+                            <div><label><input type="checkbox" id="rThreeKplus"> Did you score 3k+? 😱</label></div>
+                            <div><label><input type="checkbox" id="rUtil100"> Did you do 100+ total dmg with nades? 🔥</label></div>
+                            <div style="text-align: center;">
+                                <button type="button" onclick="submitBonus('R')">Calculate Bonuses</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
     </div>
 
     <script src="script.js"></script>
