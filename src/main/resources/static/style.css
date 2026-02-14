@@ -211,8 +211,12 @@ input, select {
     font-size: 24px;
     cursor: pointer;
 }
+
 @media (max-width: 768px) {
     button {
         width: 100%;
     }
-}
+    .playerScore {
+        justify-content: space-between;
+        gap: 10px;
+    }
