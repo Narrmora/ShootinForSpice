@@ -27,8 +27,9 @@ public class ScoreController {
     @GetMapping("/history")
     public List<Game> getHistory() {
         // Return all games for the frontend to display
-        return scoreService.getCompetition().getGames();
+        return scoreService.getAllGames();
     }
+
     @GetMapping("/getscore")
     public ScoreResponse getScore(){
         return scoreService.getScore();
