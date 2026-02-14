@@ -5,14 +5,11 @@ body {
     background-image: url(assets/background.png);
     background-size: cover;  
     background-repeat: no-repeat; /* prevent tiling */
-
 }
-
 .container {
     max-width: 800px;
     margin: auto;
-    
-}
+    }
 
 h1 {
     text-align: center;
@@ -160,14 +157,17 @@ input, select {
 }
 .rounds-container {
     display: flex;
-    justify-content: space-between; /* space between left and right */
+    justify-content: center; /* space between left and right */
     gap: 20px; /* optional spacing */
+    flex-wrap: wrap;           /* prevents overflow */
+
 }
 
 .round-form {
-    padding: 15px;
+    padding: 12px;
     border-radius: 8px;
-    flex: 1; /* each form takes equal width */
+    flex: none         /* grow | shrink | base width */
+    max-width: 350px; /* each form takes equal width */
     text-shadow: 0 0 0.7px currentColor;
 }
 .gameInfo {
@@ -210,4 +210,9 @@ input, select {
     float: right;
     font-size: 24px;
     cursor: pointer;
+}
+@media (max-width: 768px) {
+    button {
+        width: 100%;
+    }
 }
