@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game History</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Game History</h1>
+
+    <div id="historyList"></div>
+
+    <button onclick="window.location.href='/'">
+        ⬅ Back to Game
+    </button>
+</div>
+
+<script>
+    async function loadHistory() {
+        const response = await fetch('/api/history');
+        const games = await response.json();
+
+        const historyList = document.getElementById('historyList');
+        historyList.innerHTML = '';
+
+        games.forEach((game, index) => {
+            const card = document.createElement('div');
+            card.className = 'history-card';
+
+            card.innerHTML = `
+                <h3>Game #${game.id}</h3>
+                <p>M: ${game.scoreM} | R: ${game.scoreR}</p>
+                <p><strong>Winner:</strong> ${game.winner}</p>
+            `;
+
+            historyList.appendChild(card);
+        });
+    }
+
+    loadHistory();
+</script>
+
+</body>
+</html>

@@ -12,13 +12,13 @@ async function getScore() {
 
 function openBonusModal() {
     const modal = document.getElementById("bonusModal");
-    modal.style.display = "block";
+    modal.classList.add("active");
     document.body.classList.add("modal-open");
 }
 
 function closeBonusModal() {
     const modal = document.getElementById("bonusModal");
-    modal.style.display = "none";
+    modal.classList.remove("active");
     document.body.classList.remove("modal-open");
     getScore();
 }

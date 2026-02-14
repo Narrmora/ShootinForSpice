@@ -137,12 +137,11 @@
             <!-- BONUS MODAL -->
             <div id="bonusModal" class="modal">
                 <div class="modal-content">
-                    <span class="close-button" onclick="closeBonusModal()">&times;</span>
                     <h2>Endgame Bonuses</h2>
 
                     <div class="rounds-container">
                         <div class="round-form" style="background-color: #d400ff81;">
-                            <div><h3>M</h3></div>
+                            <div><h3>Miška</h3></div>
                             <div><label><input type="checkbox" id="mAnubisWin"> Was this a win on Anubis?</label></div>
                             <div><label><input type="checkbox" id="mOfficeWin"> Was this a win on Office?</label></div>
                             <div><label><input type="checkbox" id="mClickbait"> Were you the clickbait? 🤭</label></div>
@@ -156,7 +155,7 @@
                         </div>
 
                         <div class="round-form" style="background-color: rgba(0, 110, 255, 0.4);">
-                            <div><h3>R</h3></div>
+                            <div><h3>Romi</h3></div>
                             <div><label><input type="checkbox" id="rAnubisWin"> Was this a win on Anubis?</label></div>
                             <div><label><input type="checkbox" id="rOfficeWin"> Was this a win on Office?</label></div>
                             <div><label><input type="checkbox" id="rClickbait"> Were you the clickbait? 🤭</label></div>
@@ -165,7 +164,7 @@
                             <div><label><input type="checkbox" id="rThreeKplus"> Did you score 3k+? 😱</label></div>
                             <div><label><input type="checkbox" id="rUtil100"> Did you do 100+ total dmg with nades? 🔥</label></div>
                             <div style="text-align: center;">
-                                <button type="button" onclick="submitBonus('R')">Calculate Bonuses</button>
+                                <button type="button" class="rbutton" onclick="submitBonus('R')">Calculate Bonuses</button>
                             </div>
                         </div>
                     </div>

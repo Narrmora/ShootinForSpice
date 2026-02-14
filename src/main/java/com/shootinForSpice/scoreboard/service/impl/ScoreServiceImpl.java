@@ -34,6 +34,10 @@ public class ScoreServiceImpl implements iScoreService {
 
         competition.getGames().add(firstGame);
     }
+    public List<Game> getAllGames() {
+        return competition.getGames();
+    }
+
     @Override
     public ScoreResponse finishGame(BonusRequest bonusRequest) {
         List<Game> games = competition.getGames();
